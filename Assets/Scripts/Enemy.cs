@@ -24,9 +24,24 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 1. 방향이 필요 direction = target - me
-        dir = target.position - transform.position;
-        dir.Normalize();
+        // 시작할 때 타겟을 동적으로 찾아서 할당하자
+        GameObject obj = GameObject.Find("Player");
+        if (obj)
+        {
+            target = obj.transform;
+        }
+        // 만약 타겟이 null 이라면
+        if (target == null)
+        {
+            // 방향은 그냥 아래로 설정하자
+            dir = Vector3.down;
+        }
+        else
+        {
+            // 1. 방향이 필요 direction = target - me
+            dir = target.position - transform.position;
+            dir.Normalize();
+        }
     }
 
     // Update is called once per frame

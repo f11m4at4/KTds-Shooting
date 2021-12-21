@@ -29,5 +29,16 @@ public class PlayerMove : MonoBehaviour
         // 3. 이동하고싶다.
         // P = P0 + vt
         transform.position += dir * speed * Time.deltaTime;
+        Vector3 pos = transform.position;
+        // 특정 범위를 벗어나지 못하게 하고 싶다.
+        if(pos.x < -8.35f)
+        {
+            pos.x = -8.35f;
+        }
+        if (pos.x > 8.35f)
+        {
+            pos.x = 8.35f;
+        }
+        transform.position = pos;
     }
 }
