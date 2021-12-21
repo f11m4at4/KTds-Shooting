@@ -6,6 +6,10 @@ using UnityEngine;
 // 타겟쪽으로 이동하고싶다.
 // 필요속성 : 타겟
 // 태어날 때 한번 방향을 구한 후 그 방향으로 계속 이동하고 싶다.
+
+// 다른 물체와 부딪히면 갸도 죽고 나도 죽고.
+// 죽을 때 폭발효과를 발생시키고 싶다.
+// 필요속성 : 폭발효과 공장
 public class Enemy : MonoBehaviour
 {
     // 필요속성 : 이동속도
@@ -14,6 +18,9 @@ public class Enemy : MonoBehaviour
     public Transform target;
 
     Vector3 dir;
+    // 필요속성 : 폭발효과 공장
+    public GameObject explosionFactory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,5 +41,19 @@ public class Enemy : MonoBehaviour
         Vector3 vt = dir * speed * Time.deltaTime;
         Vector3 P = P0 + vt;
         transform.position = P;
+    }
+
+    // 다른 물체와 부딪히면 갸도 죽고 나도 죽고.
+    // Enter, Stay, Exit
+    private void OnCollisionEnter(Collision other)
+    {
+        // 폭발효과 발생시키고 싶다.
+        GameObject explosion = Instantiate(explosionFactory);
+        explosion.transform.position = transform.position;
+
+        // 갸도 죽고
+        Destroy(other.gameObject);
+        // 나도 죽고
+        Destroy(gameObject);
     }
 }
