@@ -425,3 +425,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03beac6f2e5d7543b530f8ebc37bec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletFactory: {fileID: 3046608029867755943, guid: bf01029f1d00db14d96c9b93c4d93966, type: 3}
+  firePosition: {fileID: 977268557}
