@@ -22,7 +22,8 @@ public class PlayerMove : MonoBehaviour
         float h = Input.GetAxis("Horizontal");// a, d, left, right
         float v = Input.GetAxis("Vertical"); // w, s, up, down
         // 2. 방향이필요
-        Vector3 dir = Vector3.right * h + Vector3.up * v;
+        //Vector3 dir = Vector3.right * h + Vector3.up * v;
+        Vector3 dir = new Vector3(h, v, 0);
         // 크기를 1로 만들고 싶다.
         dir.Normalize();
         // 3. 이동하고싶다.
