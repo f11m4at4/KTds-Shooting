@@ -27,6 +27,8 @@ public class PlayerFire : MonoBehaviour
             GameObject bullet = Instantiate(bulletFactory);
             // 3. 총알을 발사하고 싶다.(배치시킨다.)
             bullet.transform.position = firePosition.position;
+            // 4. 총알이 총구의 방향으로 날아가도록 하고싶다.
+            bullet.transform.up = firePosition.up;
         }
     }
 }
