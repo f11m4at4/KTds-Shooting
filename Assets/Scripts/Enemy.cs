@@ -62,6 +62,10 @@ public class Enemy : MonoBehaviour
     // Enter, Stay, Exit
     private void OnCollisionEnter(Collision other)
     {
+        //BG.Instance.Kill();
+        BG.Instance.KC++;
+        
+
         // 폭발효과 발생시키고 싶다.
         GameObject explosion = Instantiate(explosionFactory);
         explosion.transform.position = transform.position;

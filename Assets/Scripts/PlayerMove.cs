@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     {
         // 사용자의 입력을 받아 상하좌우로 이동하고 싶다.
         // 1. 사용자의 입력에 따라
+        
         float h = Input.GetAxis("Horizontal");// a, d, left, right
         float v = Input.GetAxis("Vertical"); // w, s, up, down
         // 2. 방향이필요
